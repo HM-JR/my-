@@ -1,0 +1,33 @@
+支付宝接入流程
+views中
+
+
+
+一、自定义类：
+	class MyAliPay(View):    		     1继承view类，可以方法化
+		def __init__(self, **kwargs):
+        		super().__init__(**kwargs)   	2继承view原有的属性
+        		self.alipay = AliPay(               3拥有Alipay属性
+            		appid= settings.ALIPAY_APP_ID,
+            		app_notify_url=None,
+           		 #应用私钥
+            		app_private_key_string= app_private_key_string,
+            		#支付宝公钥
+            		alipay_public_key_string= alipay_public_key_string,
+            		#指明签名算法
+           		 sign_type="RSA2",
+            		#debug模式 会把请求发送至沙箱环境
+            		debug=True
+        )
+		    def get_trade_url(self, order_id, amount):
+
+        #pc网站支付地址  https://openapi.alipaydev.com/gateway.do? + querystring
+        		order_string = self.al ipay.ai_alipay_trade_page_pay(
+             #订单号
+            out_trade_no=order_id,
+            #订单总金额
+            total_amount= amount,
+            subject=order_id,
+            return_url=settings.ALIPAY_RETURN_URL,
+            notify_url= settings.ALIPAY_NOTIFY_URL
+        )

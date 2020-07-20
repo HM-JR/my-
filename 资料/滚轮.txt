@@ -1,0 +1,18 @@
+1# <div class="thumbnail content">建立一个和row下符合标准宽度的的灰色框框
+
+2# class="caption" 在末日时留与下边距一段距离
+
+3#	width: 100%;
+        height: 100%;
+        transform: scale(0.95);
+        transition: 0.3s;
+	占有原本图片大小的位置，但只显示95%的缩放比例图片
+
+4# class="img-responsive"设置图片自适应浏览器
+
+5#  var scrollT = parseInt($(document).scrollTop());
+                //获取可视范围的高度(蓝色)
+                //会随当前窗口的大小而改动
+                var windowH = $(window).height();
+                //获取完整的文档高度(红色)
+                var documentH = $(document).height();

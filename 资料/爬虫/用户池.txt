@@ -1,0 +1,4 @@
+建立UserAgent池子
+安装sudo pip3 install fake_useragent
+from fake_useragent import UserAgent
+UserAgent().random()
